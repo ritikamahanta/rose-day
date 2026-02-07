@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Rose Day Ankit</title>
+
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(135deg, #ff4e50, #f9d423);
+        font-family: 'Segoe UI', sans-serif;
+    }
+
+    .card {
+        background: white;
+        padding: 40px 50px;
+        border-radius: 20px;
+        text-align: center;
+        box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        z-index: 10;
+        animation: pop 1s ease;
+    }
+
+    @keyframes pop {
+        from { transform: scale(0.7); opacity: 0; }
+        to { transform: scale(1); opacity: 1; }
+    }
+
+    h1 {
+        color: #e63946;
+        font-size: 36px;
+        margin-bottom: 5px;
+    }
+
+    h2 {
+        color: #ff006e;
+        font-size: 28px;
+        margin-bottom: 20px;
+    }
+
+    p {
+        font-size: 20px;
+        color: #333;
+    }
+
+    button {
+        margin-top: 20px;
+        padding: 12px 25px;
+        font-size: 18px;
+        border: none;
+        border-radius: 8px;
+        background-color: #e63946;
+        color: white;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #c1121f;
+    }
+
+    .rose {
+        position: absolute;
+        bottom: -30px;
+        font-size: 28px;
+        animation: floatUp 6s linear infinite;
+    }
+
+    @keyframes floatUp {
+        from { transform: translateY(0); opacity: 1; }
+        to { transform: translateY(-110vh); opacity: 0; }
+    }
+</style>
+</head>
+
+<body>
+
+<audio id="music" loop>
+    <source src="dooron-dooron.mp3" type="audio/mpeg">
+</audio>
+
+<div class="card">
+    <h1>🌹 Happy Rose Day 🌹</h1>
+    <h2>Ankit ❤️</h2>
+    <p>This rose is for you,<br>just like this song… soft & special 💖</p>
+
+    <button onclick="playMusic()">Play Music 🎵</button>
+</div>
+
+<script>
+    const music = document.getElementById("music");
+
+    function playMusic() {
+        music.play();
+        alert("For you, Ankit 🌹\nListening to Dooron Dooran & thinking of you 💕");
+    }
+
+    function createRose() {
+        const rose = document.createElement("div");
+        rose.className = "rose";
+        rose.innerHTML = "🌹";
+        rose.style.left = Math.random() * 100 + "vw";
+        rose.style.fontSize = Math.random() * 20 + 20 + "px";
+        document.body.appendChild(rose);
+        setTimeout(() => rose.remove(), 6000);
+    }
+
+    setInterval(createRose, 300);
+</script>
+
+</body>
+</html>
